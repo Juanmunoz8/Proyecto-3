@@ -17,3 +17,5 @@ El simulador:
 ```bash
 pip install pyyaml
 
+Link video
+https://youtu.be/g5dqwsFMrVs
