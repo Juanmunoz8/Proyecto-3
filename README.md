@@ -14,7 +14,7 @@ El simulador:
 - tener Python 3.x
 - usar librería pyyaml  
   Para Instalar:
-```bash
+  bash
 pip install pyyaml
 
 Link video
