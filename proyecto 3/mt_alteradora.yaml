@@ -1,0 +1,44 @@
+mt:
+  states: [q0, q1, q2, q3, q_accept]
+  input_alphabet: [a, b, c, d, e]
+  tape_alphabet: [a, b, c, d, e, X, B]
+  initial_state: q0
+  accept_states: [q_accept]
+  transitions:
+    # Este YAML es ilustrativo, la lógica completa requiere más transiciones
+    # para mover el cabezal al final, copiar símbolos y marcarlos.
+    - state: q0
+      read: [a, b, c, d, e]
+      write: [X, X, X, X, X]
+      move: R
+      next: q1
+
+    - state: q1
+      read: [B]
+      write: [B]
+      move: L
+      next: q2
+
+    - state: q2
+      read: [a, b, c, d, e]
+      write: [a, b, c, d, e]
+      move: L
+      next: q2
+
+    - state: q2
+      read: [X]
+      write: [X]
+      move: R
+      next: q3
+
+    - state: q3
+      read: [B]
+      write: [B]
+      move: R
+      next: q_accept
+
+  inputs:
+    - "abcde"
+    - "aaaaa"
+    - "bbbbb"
+    - "abcabc"

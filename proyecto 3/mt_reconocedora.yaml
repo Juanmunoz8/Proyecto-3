@@ -1,0 +1,48 @@
+mt:
+  states: [q0, q1, q2, q3, q_accept, q_reject]
+  input_alphabet: [a, b]
+  tape_alphabet: [a, b, X, Y, B]
+  initial_state: q0
+  accept_states: [q_accept]
+  transitions:
+    - state: q0
+      read: [a]
+      write: [X]
+      move: R
+      next: q1
+
+    - state: q1
+      read: [a, X]
+      write: [a, X]
+      move: R
+      next: q1
+
+    - state: q1
+      read: [b]
+      write: [Y]
+      move: L
+      next: q2
+
+    - state: q2
+      read: [a, X, Y]
+      write: [a, X, Y]
+      move: L
+      next: q2
+
+    - state: q2
+      read: [B]
+      write: [B]
+      move: R
+      next: q0
+
+    - state: q0
+      read: [X, Y, B]
+      write: [X, Y, B]
+      move: R
+      next: q_accept
+
+  inputs:
+    - "aaabbb"
+    - "aaaaabbbbb"
+    - "aabbb"
+    - "aaabb"
